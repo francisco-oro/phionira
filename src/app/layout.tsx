@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Lexend } from 'next/font/google'
 import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/components/Providers'
 
 const lexend = Lexend({ subsets: ['latin'] })
 
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(lexend.className, "antialiased min-h-screen p-16")}>
-        <Navbar></Navbar>
-        {children}
+        <ThemeProvider>
+          <Navbar></Navbar>
+          {children}
+        </ThemeProvider>
         </body>
     </html>
   )
